@@ -1,0 +1,22 @@
+[
+    {
+        "task": "Clean room",
+        "task_is_done": true,
+        "due": "2024-12-23TIME16:25" 
+    },
+    {
+        "task": "Wash car",
+        "task_is_done": false,
+        "due": "2024-02-03TIME16:25" 
+    },
+    {
+        "task": "Doctor's appointment",
+        "task_is_done": false,
+        "due": "2024-10-10TIME16:25" 
+    },
+    {
+        "task": "Umar's birthday",
+        "task_is_done": false,
+        "due": "2024-09-03TIME16:25" 
+    }
+]
