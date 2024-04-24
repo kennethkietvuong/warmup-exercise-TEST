@@ -7,22 +7,27 @@
     {
         "task": "Wash car",
         "task_is_done": false,
-        "due": "2024-02-03TIME16:25" 
+        "due": "2024-02-03TIME13:55" 
     },
     {
         "task": "Doctor's appointment",
         "task_is_done": false,
-        "due": "2024-10-10TIME16:25" 
+        "due": "2024-10-10TIME06:15" 
     },
     {
         "task": "Umar's birthday",
         "task_is_done": false,
-        "due": "2024-09-03TIME16:25" 
+        "due": "2024-09-03TIME23:45" 
     },
     {
         "task": "Do laundry",
         "task_is_done": true,
-        "due": "2024-04-24TIME16:25"
+        "due": "2024-04-24TIME16:05"
+    },
+    {
+        "task" : "CSE110 lab4",
+        "task_is_done": false,
+        "due": "2024-04-30TIME23:59"
     }
 
 ]
