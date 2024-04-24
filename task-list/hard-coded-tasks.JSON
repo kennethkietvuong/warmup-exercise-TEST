@@ -18,5 +18,11 @@
         "task": "Umar's birthday",
         "task_is_done": false,
         "due": "2024-09-03TIME16:25" 
+    },
+    {
+        "task": "Do laundry",
+        "task_is_done": true,
+        "due": "2024-04-24TIME16:25"
     }
+
 ]
