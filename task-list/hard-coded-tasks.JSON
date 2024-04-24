@@ -2,32 +2,44 @@
     {
         "task": "Clean room",
         "task_is_done": true,
+        "priority": "High",
         "due": "2024-12-23TIME16:25" 
     },
     {
         "task": "Wash car",
         "task_is_done": false,
+        "priority": "Medium",
         "due": "2024-02-03TIME13:55" 
     },
     {
         "task": "Doctor's appointment",
         "task_is_done": false,
+        "priority": "Very High",
         "due": "2024-10-10TIME06:15" 
     },
     {
         "task": "Umar's birthday",
+        "priority": "High",
         "task_is_done": false,
         "due": "2024-09-03TIME23:45" 
     },
     {
         "task": "Do laundry",
         "task_is_done": true,
+        "priority": "Medium",
         "due": "2024-04-24TIME16:05"
     },
     {
         "task" : "CSE110 lab4",
         "task_is_done": false,
+        "priority": "Medium",
         "due": "2024-04-30TIME23:59"
-    }
+    },
+    {
+        "task" : "Submit new insurance form",
+        "task_is_done": false,
+        "priority": "Low",
+        "due": "2024-012-01TIME23:59"
+    } 
 
 ]
