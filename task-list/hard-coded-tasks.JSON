@@ -1,45 +1,51 @@
 [
     {
+        "id": 1,
         "task": "Clean room",
-        "task_is_done": true,
+        "completed": true,
         "priority": "High",
-        "due": "2024-12-23TIME16:25" 
+        "due": "2024-12-23T16:25:00"
     },
     {
+        "id": 2,
         "task": "Wash car",
-        "task_is_done": false,
+        "completed": false,
         "priority": "Medium",
-        "due": "2024-02-03TIME13:55" 
+        "due": "2024-02-03T13:55:00"
     },
     {
+        "id": 3,
         "task": "Doctor's appointment",
-        "task_is_done": false,
+        "completed": false,
         "priority": "Very High",
-        "due": "2024-10-10TIME06:15" 
+        "due": "2024-10-10T06:15:00"
     },
     {
+        "id": 4,
         "task": "Umar's birthday",
+        "completed": false,
         "priority": "High",
-        "task_is_done": false,
-        "due": "2024-09-03TIME23:45" 
+        "due": "2024-09-03T23:45:00"
     },
     {
+        "id": 5,
         "task": "Do laundry",
-        "task_is_done": true,
+        "completed": true,
         "priority": "Medium",
-        "due": "2024-04-24TIME16:05"
+        "due": "2024-04-24T16:05:00"
     },
     {
-        "task" : "CSE110 lab4",
-        "task_is_done": false,
+        "id": 6,
+        "task": "CSE110 lab4",
+        "completed": false,
         "priority": "Medium",
-        "due": "2024-04-30TIME23:59"
+        "due": "2024-04-30T23:59:00"
     },
     {
-        "task" : "Submit new insurance form",
-        "task_is_done": false,
+        "id": 7,
+        "task": "Submit new insurance form",
+        "completed": false,
         "priority": "Low",
-        "due": "2024-012-01TIME23:59"
-    } 
-
+        "due": "2024-12-01T23:59:00"
+    }
 ]
