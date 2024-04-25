@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!--Placeholder webpage title-->
-        <title>Task List Web Widget</title> 
 
-        <link rel="icon" href="">
-        <link rel="stylesheet" href="styles.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--
-        The body is made based on the draw up of the UI-Design
-        Breaks all the divs up using ids and classes 
-    -->
-    <body>
-        <div id="outermost_box">
-            <div id="task_list_title">
-                <h1>Task List</h1>
-            </div>
+    <title>Task List Web Widget</title>
 
-            <div id="tasks_main">
-                <div id="tasks">
-                    <h2>Tasks</h2>
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="main-canvas">
+        <div id="blur">
+            <div id="column-container">
+                <div id="user-column">
+                    <div id="avatar-box">
+                        <div id="avatar-greeting">
+                            Welcome Back, Trainer [Username]
+                        </div>
+                    </div>
                 </div>
-                <div id="task_list_items">
-                    <div class="task">
-                        <h3><input class="radiobtn" type="radio">Task 1 Due Date</h3>
+                <div id="space-column">
+                </div>
+                <div id="task-column">
+                    <div id="tasks-header">
+                        Task List
                     </div>
-                    <div class="task">
-                        <h3><input class="radiobtn" type="radio">Task 2 Due Date</h3>
-                    </div>
-                    <div class="task">
-                        <h3><input class="radiobtn" type="radio">Task 3 Due Date</h3>
-                    </div>
-                    <div class="task">
-                        <h3><input class="radiobtn" type="radio">Task 4 Due Date</h3>
+                    <div id="task_list_items">
+                        <div class="task">
+                            <h3><input class="radiobtn" type="radio">Task 1 Due Date</h3>
+                        </div>
+                        <div class="task">
+                            <h3><input class="radiobtn" type="radio">Task 2 Due Date</h3>
+                        </div>
+                        <div class="task">
+                            <h3><input class="radiobtn" type="radio">Task 3 Due Date</h3>
+                        </div>
+                        <div class="task">
+                            <h3><input class="radiobtn" type="radio">Task 4 Due Date</h3>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    <script src="app.js"></script>
+</body>
 
-        <script src="app.js"></script>
-    </body>
 </html>
