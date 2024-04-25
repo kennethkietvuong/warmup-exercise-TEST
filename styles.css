@@ -1,73 +1,94 @@
 * {
-    color: white;
-    background-color: black;
+    color: rgb(83, 71, 61);
+    font-family: Arial, sans-serif;
 }
 
-#outermost_box {
-    border-style: solid;
-    border-color: red;
-    border-width: 1pt;
+#main-canvas {
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(2px);
+    background-image: url('UI_src/imgs/cherry-blossom-background.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    #blur {
+        background-color: rgba(255, 255, 255, 0.098);
+        backdrop-filter: blur(4px);
+        padding: 5vh 5vw 5vh 5vw;
+    }
 }
 
-#task_list {
-    border-style: solid;
-    border-color: red;
-    border-width: 1pt;
-
-    width: 100%;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    padding: 16px;
-}
-
-#task_list_title {
-    border-style: solid;
-    border-color: red;
-    border-width: 1pt;
-
-    width: 80%;
-    margin: 30px 0px 40px 60px;
-    padding-left: 20px;
-}
-
-#tasks_main {
-    border-style: solid;
-    border-color: red;
+#column-container {
+    width: 90vw;
+    height: 90vh;
+    display: flex;
     border-width: 1pt;
 
-    width: 80%;
-    margin: 30px 0px 40px 60px;
-}
+    #user-column {
+        flex: 3;
+        border-radius: 30px;
+        background-color: rgba(234, 232, 229, 0.5);
+        box-sizing: border-box;
 
-#tasks {
-    border-style: solid;
-    border-color: red;
-    border-width: 1pt;
+        #avatar-box {
+            background-color: rgb(235, 219, 195);
+            height: 40%;
+            width: 100%;
+            border-radius: 30px 30px 0px 0px;
+            border-bottom: 2px solid rgb(116, 104, 89);
 
-    width: 90%;
-    margin: 20px 30px 0px 20px;
-    padding-left: 20px;
-}
+            #avatar-greeting {
+                /* background-color: rgb(209, 18, 18); //testing purposes */
+                height: 20%;
+                width: 90%;
+                padding: 5% 5%;
+                font-size: 30px;
 
-#task_list_items {
-    border-style: solid;
-    border-color: red;
-    border-width: 1pt;
+            }
+        }
+    }
 
-    width: 90%;
-    margin: 0px 30px 50px 20px;
-}
+    #space-column {
+        flex: 1;
+    }
 
-.task {
-    border-style: solid;
-    border-color: red;
-    border-width: 1pt;
+    #task-column {
+        flex: 10;
+        border-radius: 30px;
+        background-color: rgba(234, 232, 229, 0.5);
+        box-sizing: border-box;
 
-    width: 90%;
-    margin: 30px;
-    padding-left: 5px; 
-}
+        #tasks-header {
+            background-color: rgb(197, 177, 148);
+            height: 6%;
+            width: 90%;
+            border-radius: 30px 30px 0px 0px;
+            border-bottom: 2px solid rgb(116, 104, 89);
+            padding: 2% 5%;
 
-.radiobtn {
-    margin: auto 20px auto 10px;
+            font-size: 40px;
+
+        }
+
+        #task_list_items {
+            height: 84%;
+            /* background-color: rgb(209, 18, 18); //testing purposes */
+            width: 90%;
+        }
+
+        .task {
+            background-color: rgb(198, 232, 181);
+            padding: 2% 5%;
+            height: 8%;
+            width: 90%;
+            margin: 30px;
+            border-radius: 30px;
+            padding-left: 5px;
+        }
+
+        .radiobtn {
+            margin: auto 20px auto 10px;
+        }
+
+    }
 }
