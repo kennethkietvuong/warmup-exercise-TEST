@@ -1,3 +1,8 @@
 .completed {
     text-decoration: line-through;
 }
+
+div[class="taskItem"], div[class="taskItem completed"] {
+    font-size: 20px;
+    font-weight: bold;
+}
