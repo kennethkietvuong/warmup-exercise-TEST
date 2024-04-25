@@ -118,6 +118,8 @@ addTaskButton.addEventListener("click", () => {
 function editTask(divItem, taskId) {
     // const taskTitle = divItem.textContent.trim(); // get current title
     const taskTitle = divItem.querySelector("h3").textContent; // get current title
+    
+    // Create input text box to change task title
     const editInput = document.createElement("input");
     editInput.type = "text";
     editInput.value = taskTitle;
@@ -147,24 +149,28 @@ function editTask(divItem, taskId) {
     divItem.appendChild(buttonContainer);
 }
 
+// FIXME:
 // Function to save edited task
 function saveEdit(divItem, taskId, newTitle, taskTitle) {
-    if (newTitle.trim()) {
-        fetch('task-list/hard-coded-tasks.json')
-        .then(response => response.json())
-        .then(data => {
-            const updatedData = data.map(task => (task.id === taskId ? { ...task, title: newTitle } : task));
-            localStorage.setItem("tasks", JSON.stringify(updatedData)); // update local storage
-            divItem.textContent = newTitle; // update displayed title
-            removeEditElements(divItem); // remove edit UI elements
-        });
+    // if (newTitle.trim()) {
+    //     fetch('task-list/hard-coded-tasks.json')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         const updatedData = data.map(task => (task.id === taskId ? { ...task, title: newTitle } : task));
+    //         localStorage.setItem("tasks", JSON.stringify(updatedData)); // update local storage
+    //         divItem.textContent = newTitle; // update displayed title
+    //         removeEditElements(divItem); // remove edit UI elements
+    //     });
+    if (newTitle != taskTitle) {
+        divItem.querySelector("h3").textContent = newTitle;
     } else {
         // handle case where user enters empty title on edit
         console.error("Task title cannot be empty!");
-        cancelEdit(divItem, taskTitle); // revert to original title
     }
+    cancelEdit(divItem, taskTitle); // revert to original title
 }
 
+// DONE:
 // Function to cancel editing a task
 function cancelEdit(divItem, originalTitle) {
     // Unhides original task title & edit/delete buttons
