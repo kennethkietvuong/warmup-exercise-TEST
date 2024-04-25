@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <!--Placeholder webpage title-->
-        <title>Task List Web Widget</title> 
 
-        <link rel="icon" href="">
-        <link rel="stylesheet" href="styles.css">
-        
-        <!--<script src="app.js"></script>-->
-    </head>
-    
-    <body>
-        <h1>Task List Web Widget Placeholder Text</h1>
-        <div id="task-list"></div>
-        
-        <h1> Test add widget </h1>
-        <input type="text" id="new-task" placeholder="Add a new task">
-        <button id="add-task">Add</button>
-        <script src="test.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Task List Web Widget</title>
+
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="main-canvas">
+        <div id="blur">
+            <div id="column-container">
+                <div id="user-column">
+                    <div id="avatar-box">
+                        <div id="avatar-greeting">
+                            Welcome Back, Trainer [Username]
+                        </div>
+                    </div>
+                </div>
+                <div id="space-column">
+                </div>
+                <div id="task-column">
+                    <div id="tasks-header">
+                        Task List
+                    </div>
+                    <div id="task_list_items">
+                        <!--
+                        <div class="task">
+                            <h3><input class="radiobtn" type="radio">Task 1 Due Date</h3>
+                        </div>
+                        <div class="task">
+                            <h3><input class="radiobtn" type="radio">Task 2 Due Date</h3>
+                        </div>
+                        <div class="task">
+                            <h3><input class="radiobtn" type="radio">Task 3 Due Date</h3>
+                        </div>
+                        <div class="task">
+                            <h3><input class="radiobtn" type="radio">Task 4 Due Date</h3>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="app.js"></script>
+</body>
 
 </html>
