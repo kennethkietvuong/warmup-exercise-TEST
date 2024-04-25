@@ -19,22 +19,34 @@ function loadTasks() {
 function renderTask(taskItem) {
     // Create a div element for each task
     const taskDiv = document.createElement("div");
-    taskDiv.textContent = taskItem.task;
-    taskDiv.dataset.taskId = taskItem.id;
+    taskDescription = document.createElement("h3");
+    taskDescription.textContent = taskItem.task;
+    taskDiv.setAttribute("task-id", taskItem.id);
+
+    // Create a "container" to hold edit/delete button
+    const buttonContainer = document.createElement("div");
+    buttonContainer.setAttribute("class","buttons");
 
     // Create a edit button element for each task 
     const editButton = document.createElement("button");
-    //editButton.setAttribute("class", "edit-button");
+    editButton.setAttribute("class", "edit-button");
     editButton.textContent = "Edit";
     editButton.addEventListener("click", () => editTask(taskDiv, taskItem.id));
 
     // Create a delete button for each task
     const deleteButton = document.createElement("button");
+    deleteButton.setAttribute("class", "delete-button");
     deleteButton.textContent = "Delete";
     deleteButton.addEventListener("click", () => deleteTask(taskDiv, taskItem.id));
 
-    taskDiv.appendChild(editButton);
-    taskDiv.appendChild(deleteButton);
+    // Put edit & delete button into "container"
+    buttonContainer.appendChild(editButton);
+    buttonContainer.appendChild(deleteButton);
+
+    taskDiv.appendChild(taskDescription);
+    taskDiv.appendChild(buttonContainer);
+
+    //console.log(taskDiv.textContent);
 
     // If task "completed", then add class "completed" for appearance change
     if (taskItem.completed) {
@@ -104,15 +116,19 @@ addTaskButton.addEventListener("click", () => {
 
 // Function to edit a task
 function editTask(divItem, taskId) {
-    const taskTitle = divItem.textContent.trim(); // get current title
+    // const taskTitle = divItem.textContent.trim(); // get current title
+    const taskTitle = divItem.querySelector("h3").textContent; // get current title
     const editInput = document.createElement("input");
     editInput.type = "text";
     editInput.value = taskTitle;
-
-    divItem.textContent = ""; // clear current title
+    
+    // Hide task title, edit/delete buttons
+    divItem.querySelector("h3").style.display = "none";
+    divItem.querySelector("div[class='buttons']").style.display = "none";
 
     // Wrap buttons for better query targeting
-    const buttonContainer = document.createElement("div"); 
+    const buttonContainer = document.createElement("div");
+    buttonContainer.setAttribute("class","edit-buttons"); 
 
     // Create a save button to save changes
     const saveButton = document.createElement("button");
@@ -129,12 +145,6 @@ function editTask(divItem, taskId) {
 
     divItem.appendChild(editInput);
     divItem.appendChild(buttonContainer);
-
-    // Disable edit/delete button while editing
-    setTimeout(() => {
-        divItem.querySelector("button[data-action='delete']").disabled = true;
-        divItem.querySelector("button[data-action='edit']").disabled = true;
-    }, 0);
 }
 
 // Function to save edited task
@@ -157,13 +167,11 @@ function saveEdit(divItem, taskId, newTitle, taskTitle) {
 
 // Function to cancel editing a task
 function cancelEdit(divItem, originalTitle) {
-    divItem.textContent = originalTitle;
-    removeEditElements(divItem);
-}
-
-// Function to remove edit UI elements
-function removeEditElements(divItem) {
-    divItem.querySelectorAll("input, button").forEach(element => element.remove());
-    divItem.querySelector("button[data-action='delete']").disabled = false;
-    divItem.querySelector("button[data-action='edit']").disabled = false;
+    // Unhides original task title & edit/delete buttons
+    divItem.querySelector("h3").removeAttribute("style");
+    divItem.querySelector("div[class='buttons']").removeAttribute("style");
+    
+    // Deletes the input text box & container that contains save/cancel button
+    divItem.querySelector("input").remove();
+    divItem.querySelector("div[class='edit-buttons']").remove();
 }
