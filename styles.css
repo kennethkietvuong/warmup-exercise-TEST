@@ -71,12 +71,13 @@
         }
 
         #task_list_items {
-            height: 84%;
+            height: 100%;
             /* background-color: rgb(209, 18, 18); //testing purposes */
             width: 90%;
         }
 
         .task {
+            display: flex;
             background-color: rgb(198, 232, 181);
             padding: 2% 5%;
             height: 8%;
@@ -84,6 +85,20 @@
             margin: 30px;
             border-radius: 30px;
             padding-left: 5px;
+
+            #task-text {
+                padding: 2% 5% 2% 5%;
+                flex: 8;
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            #image-container {
+                flex: 1;
+                display: flex;
+                height: 100%;
+                align-items: end;
+            }
         }
 
         .radiobtn {

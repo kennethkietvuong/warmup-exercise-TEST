@@ -21,5 +21,24 @@ function displayTasks() {
         .catch(error => console.error('Error fetching tasks:', error));
 }
 
+function getRandomImageUrl() {
+    var randomIndex = Math.floor(Math.random() * 9)+1;
+    var randomNumberString = randomIndex.toString();
+    while (randomNumberString.length < 3) {
+        randomNumberString = '0' + randomNumberString;
+    }
+    return "UI_src/imgs/pokemon/pokemon_icon_" + randomNumberString + "_00.png";
+}
+
+function displayRandomImage() {
+    for (var i = 1; i < 5; i++) {
+        var randomImageUrl = getRandomImageUrl();
+        var imageElement = document.getElementById("random-image" + i);
+        imageElement.src = randomImageUrl;
+        imageElement.alt = randomImageUrl;
+    }
+}
+
 // Call the function to display tasks when the page loads
 displayTasks();
+displayRandomImage()
