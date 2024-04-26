@@ -24,6 +24,7 @@ function renderTask(taskItem) {
     const taskDiv = document.createElement("div");
     taskDiv.setAttribute("task-id", taskItem.id);
     taskDiv.classList.add("task");
+    taskDiv.setAttribute("pokemon-number", randomNumberGenerator());
     
     // Create checkbox (NEW)
     const checkbox = document.createElement("input");
@@ -158,6 +159,13 @@ function cancelEdit(divItem, originalTitle) {
     // Deletes the input text box & container that contains save/cancel button
     divItem.querySelector("input[type='text']").remove();
     divItem.querySelector("div[class='edit-buttons']").remove();
+}
+
+function randomNumberGenerator () {
+    var numPokemon = 80;
+    var randomIndex = Math.floor(Math.random() * numPokemon)+1;
+    var randomNumberString = randomIndex.toString();
+    return randomNumberString;
 }
 
 // /** 

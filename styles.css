@@ -74,6 +74,7 @@
             height: 84%;
             /* background-color: rgb(209, 18, 18); //testing purposes */
             width: 90%;
+            overflow: scroll;
         }
 
         .task {
