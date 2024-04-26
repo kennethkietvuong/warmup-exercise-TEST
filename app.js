@@ -112,6 +112,20 @@ function editTask(divItem, taskId) {
     editInput.type = "text";
     editInput.value = taskTitle;
     
+    // Save due date & current date
+    const dueDate = divItem.querySelector("span[name='dueDate']").textContent;
+    const currentDueDate = new Date(dueDate.replace(' Due: ', ''));
+
+    // Date Dropdown
+    const dateInput = document.createElement("input");
+    dateInput.type = "date";
+    dateInput.value = currentDueDate.toISOString().split('T')[0];
+
+    // Time
+    const timeInput = document.createElement("input");
+    timeInput.type = "time";
+    timeInput.value = currentDueDate.toTimeString().substring(0,5);
+
     // Hide task title, edit/delete buttons
     divItem.querySelector("span[name='taskDescription']").style.display = "none";
     divItem.querySelector("span[name='dueDate']").style.display = "none";
@@ -136,13 +150,17 @@ function editTask(divItem, taskId) {
     buttonContainer.appendChild(cancelButton);
 
     divItem.appendChild(editInput);
+    divItem.appendChild(dateInput);
+    divItem.appendChild(timeInput);
     divItem.appendChild(buttonContainer);
 }
 
 // // Function to save edited task
-function saveEdit(divItem, taskId, newTitle, taskTitle) {
-    if (newTitle != taskTitle && newTitle.length != 0) {
+function saveEdit(divItem, taskId, newTitle, taskTitle, newDate, newTime) {
+    if ((newTitle != taskTitle && newTitle.length != 0) || newDate || newTime) {
         divItem.querySelector("span[name='taskDescription']").textContent = newTitle;
+        divItem.querySelector("span[name='dueDate']").textContent = ` Due: ${new Date(`${newDate}T${newTime}`).toLocaleString()}`;
+        console.log(divItem.querySelector("span[name='dueDate']").textContent);
     }
     cancelEdit(divItem, taskTitle); // revert to original title
 }
@@ -159,6 +177,8 @@ function cancelEdit(divItem, originalTitle) {
     // Deletes the input text box & container that contains save/cancel button
     divItem.querySelector("input[type='text']").remove();
     divItem.querySelector("div[class='edit-buttons']").remove();
+    divItem.querySelector("input[type='date']").remove();
+    divItem.querySelector("input[type='time']").remove();
 }
 
 function randomNumberGenerator () {
