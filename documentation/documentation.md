@@ -11,7 +11,9 @@
 - [Sanjith] Opened #5
 
 ## Wed April 24th 
+- [Nathan] Opened #15
 
 ## Thurs April 25th 
+- [Nathan] Completed #15
 
 ## Fri April 26th 
