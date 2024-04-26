@@ -111,20 +111,22 @@ function editTask(divItem, taskId) {
     const editInput = document.createElement("input");
     editInput.type = "text";
     editInput.value = taskTitle;
-    
+
     // Save due date & current date
     const dueDate = divItem.querySelector("span[name='dueDate']").textContent;
-    const currentDueDate = new Date(dueDate.replace(' Due: ', ''));
+    var currentDueDate = new Date(dueDate.replace(' Due: ', ''));
 
     // Date Dropdown
     const dateInput = document.createElement("input");
     dateInput.type = "date";
     dateInput.value = currentDueDate.toISOString().split('T')[0];
+    const originalDate = dateInput.value;
 
     // Time
     const timeInput = document.createElement("input");
     timeInput.type = "time";
     timeInput.value = currentDueDate.toTimeString().substring(0,5);
+    const originalTime = timeInput.value;
 
     // Hide task title, edit/delete buttons
     divItem.querySelector("span[name='taskDescription']").style.display = "none";
@@ -139,7 +141,8 @@ function editTask(divItem, taskId) {
     // Create a save button to save changes
     const saveButton = document.createElement("button");
     saveButton.textContent = "Save";
-    saveButton.addEventListener("click", () => saveEdit(divItem, taskId, editInput.value, taskTitle));
+    saveButton.addEventListener("click", () => saveEdit(divItem, taskId, editInput.value, taskTitle, 
+        dateInput.value, originalDate, timeInput.value, originalTime));
 
     // Create a cancel button to cancel changes
     const cancelButton = document.createElement("button");
@@ -156,11 +159,36 @@ function editTask(divItem, taskId) {
 }
 
 // // Function to save edited task
-function saveEdit(divItem, taskId, newTitle, taskTitle, newDate, newTime) {
-    if ((newTitle != taskTitle && newTitle.length != 0) || newDate || newTime) {
+function saveEdit(divItem, taskId, newTitle, taskTitle, newDate, originalDate, newTime, originalTime) {
+    let flag = false;
+    let flag2 = false;
+    var dateObj = new Date(newDate);
+    
+    if (newTitle != taskTitle && newTitle.length != 0) {
         divItem.querySelector("span[name='taskDescription']").textContent = newTitle;
-        divItem.querySelector("span[name='dueDate']").textContent = ` Due: ${new Date(`${newDate}T${newTime}`).toLocaleString()}`;
-        console.log(divItem.querySelector("span[name='dueDate']").textContent);
+    }
+
+    if (newDate != originalDate) {
+        flag = true;
+    }
+    if(newTime != originalTime) {
+        flag2 = true;
+    }
+
+    if (flag || flag2) {
+        if (flag) {
+            dateObj.setDate(dateObj.getDate() + 1);   
+        }
+        if (flag2) {
+            var time = newTime.split(":")
+            dateObj.setHours(time[0], time[1]);
+        }
+        else {
+            var time = originalTime.split(":");
+            dateObj.setHours(time[0], time[1]);
+        }
+
+        divItem.querySelector("span[name='dueDate']").textContent = ` Due: ${dateObj.toLocaleString()}`;
     }
     cancelEdit(divItem, taskTitle); // revert to original title
 }
