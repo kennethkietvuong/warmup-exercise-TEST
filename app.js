@@ -22,7 +22,8 @@ function displayTasks() {
 }
 
 function getRandomImageUrl() {
-    var randomIndex = Math.floor(Math.random() * 9)+1;
+    var numPokemon = 80;
+    var randomIndex = Math.floor(Math.random() * numPokemon)+1;
     var randomNumberString = randomIndex.toString();
     while (randomNumberString.length < 3) {
         randomNumberString = '0' + randomNumberString;
